@@ -1,0 +1,54 @@
+#//-------Não listar o conteúdo de um diretório--------//
+Options -Indexes
+
+#//-------Sobrescrever URLs-----------//
+
+RewriteEngine On
+
+RewriteRule ^inicio/?$ index.php [NC,L]
+RewriteRule ^sobre/?$ about-us.php [NC,L]
+RewriteRule ^noticias/?$ blog.php [NC,L]
+RewriteRule ^contato/?$ contact-us.php [NC,L]
+ 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+ 
+RewriteRule ^(.+)$ index.php?p=$1 [QSA,L]
+
+
+#// ——- Autenticação com senha ativado ———–//
+#deny from all
+#AuthUserFile /site/.htpasswd
+#AuthGroupFile /dev/null
+#AuthName “Please enter your ID and password”
+#AuthType Basic
+#require valid-user
+
+#//——- páginas de erro padrão ———–//
+#ErrorDocument 400 erro400.html
+#ErrorDocument 401 erro401.html
+#… xxx erroXXX.html
+#ErrorDocument 504 erro504.html
+#ErrorDocument 505 erro505.html
+#RewriteEngine on
+
+#//———– Evitando Conteúdo duplicado ———–//
+#RewriteCond %{HTTP_HOST} ^(mundoseo.com.br)(:80)? [NC]
+#RewriteRule ^(.*) http://www.mundoseo.com.br/$1 [R=301,L]
+
+#//———– Página Padrão ———–//
+#DirectoryIndex páginadefault.html
+
+#//———– Redirecionamento Permanente ———–//
+#Redirect permanent www.movapermanentedaqui.com www.movidopermanenteparaca.com
+
+#//———– Redirecionamento Temporário ———–//
+#Redirect temp www.movatemporariodaqui.com www.movidoparacatemporario.com
+#order deny,allow
+
+#//——— Páginas permitidas ————-//
+#allow from www.endereçopermitido.com.br
+
+#//——— Páginas Bloqueadas ————-//
+#deny from www.endereçonegado.com.br

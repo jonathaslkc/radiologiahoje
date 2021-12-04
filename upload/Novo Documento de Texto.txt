@@ -1,0 +1,16 @@
+	<div class="control-group">
+                                <!-- Imagem Perfil -->
+                                <div class="controls">
+                                    <div class="main">
+                                        <div id="image_preview"><img id="previewing" src="noimage.png" /></div>
+                                        <hr id="line">
+                                        <div id="selectImage">
+                                            <label>Selecione uma Imagem - <?php echo $_SESSION['imagemupada']; ?></label><br/>
+                                            <input type="file" name="file" id="file" required />
+                                            <input type="submit" value="Carregar" class="submit" />
+                                        </div>
+                                    </div>
+                                    <h4 id='loading' >Carregando...</h4>
+                                    <p id="message"></p>
+                                </div>
+                            </div>
